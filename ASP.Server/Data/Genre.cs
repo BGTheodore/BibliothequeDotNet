@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,9 +14,12 @@ namespace ASP.Server.Model
         public int Id { get; set; }
 
         // Mettez ici les propriété de votre livre: Nom et Livres associés
+        [Required] 
         public string Name { get; set; }
 
         // N'oublier pas qu'un genre peut avoir plusieur livres
+
+        [JsonIgnore]
         public ICollection<Book> Books { get; set; }
     }
 
