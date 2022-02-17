@@ -35,12 +35,12 @@ label {
     </div>
     <div class="input-group">
         <label asp-for="Price"></label>
-        <input asp-for="Price" required min="0"/>
+        <input asp-for="Price" type="number" required min="0"/>
     </div>
     <div class="input-group">
         <label asp-for="Genres"></label>
         <!--Si la page rend une erreur a cette ligne, c'est que vous n'avez pas envoyé la liste des genres dans le Controller !!! ! -->
-        <select asp-for="Genres" asp-items="@(new SelectList(Model.AllGenres,"Id","Name"))">
+        <select asp-for="Genres" required asp-items="@(new SelectList(Model.AllGenres,"Id","Name"))">
         </select>
     </div>
    <!-- Code pour ajouter les genres -->

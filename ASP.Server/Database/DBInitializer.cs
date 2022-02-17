@@ -52,25 +52,8 @@ namespace ASP.Server.Database
                 new Book() { Author = "Brian Mealer", Name = "Le garcon qui dompta le vent", Price = 140, Content = placeholder, Genres = new List<Genre>() { Romance, Thriller } },
                 new Book() { Author = "Albert Camus", Name = "L'etranger", Price = 80, Content = placeholder, Genres = new List<Genre>() { RC, RH } },
                 new Book() { Author = "Marc Levy", Name = "Mes amis, mes amours", Price = 90, Content = placeholder, Genres = new List<Genre>() { RE, RM } },
-                new Book() { Author = "Eric Kastner", Name = "Le 35 mai", Price = 100, Content = placeholder, Genres = new List<Genre>() { RI, Classic, RA } },
-                new Book() { Author = "Brian Mealer", Name = "Le garcon qui dompta le vent", Price = 140, Content = placeholder, Genres = new List<Genre>() { Novella, NF } },
-                new Book() { Author = "Albert Camus", Name = "L'etranger", Price = 80, Content = placeholder, Genres = new List<Genre>() { SF, Thriller } },
-                new Book() { Author = "Marc Levy", Name = "Mes amis, mes amours", Price = 90, Content = placeholder, Genres = new List<Genre>() { Romance, SF } },
-                new Book() { Author = "Eric Kastner", Name = "Le 35 mai", Price = 100, Content = placeholder, Genres = new List<Genre>() { SF, Classic } },
-                new Book() { Author = "Brian Mealer", Name = "Le garcon qui dompta le vent", Price = 140, Content = placeholder, Genres = new List<Genre>() { Romance, Thriller } },
-                new Book() { Author = "Albert Camus", Name = "L'etranger", Price = 80, Content = placeholder, Genres = new List<Genre>() { RC, RH } },
-                new Book() { Author = "Marc Levy", Name = "Mes amis, mes amours", Price = 90, Content = placeholder, Genres = new List<Genre>() { RE, RM } },
-                new Book() { Author = "Eric Kastner", Name = "Le 35 mai", Price = 100, Content = placeholder, Genres = new List<Genre>() { RI, Classic, RA } },
-                new Book() { Author = "Brian Mealer", Name = "Le garcon qui dompta le vent", Price = 140, Content = placeholder, Genres = new List<Genre>() { Novella, NF } },
-                new Book() { Author = "Albert Camus", Name = "L'etranger", Price = 80, Content = placeholder, Genres = new List<Genre>() { SF, Thriller } },
-                new Book() { Author = "Marc Levy", Name = "Mes amis, mes amours", Price = 90, Content = placeholder, Genres = new List<Genre>() { Romance, SF } },
-                new Book() { Author = "Eric Kastner", Name = "Le 35 mai", Price = 100, Content = placeholder, Genres = new List<Genre>() { SF, Classic } },
-                new Book() { Author = "Brian Mealer", Name = "Le garcon qui dompta le vent", Price = 140, Content = placeholder, Genres = new List<Genre>() { Romance, Thriller } },
-                new Book() { Author = "Albert Camus", Name = "L'etranger", Price = 80, Content = placeholder, Genres = new List<Genre>() { RC, RH } },
-                new Book() { Author = "Marc Levy", Name = "Mes amis, mes amours", Price = 90, Content = placeholder, Genres = new List<Genre>() { RE, RM } },
-                new Book() { Author = "Eric Kastner", Name = "Le 35 mai", Price = 100, Content = placeholder, Genres = new List<Genre>() { RI, Classic, RA } },
-                new Book() { Author = "Brian Mealer", Name = "Le garcon qui dompta le vent", Price = 140, Content = placeholder, Genres = new List<Genre>() { Novella, NF } }
-            );
+                new Book() { Author = "Eric Kastner", Name = "Le 35 mai", Price = 100, Content = placeholder, Genres = new List<Genre>() { RI, Classic, RA } }
+           );
             // Vous pouvez initialiser la BDD ici
             bookDbContext.SaveChanges();
         }

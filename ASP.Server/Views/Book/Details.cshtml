@@ -6,10 +6,20 @@
 
 <div class="listeBooks">
     <h1>@Model.Name</h1>
-    <h3> Genres : 
-          @foreach (var genre in Model.Genres)
-               @genre.Name |
-    </h3>
+    <h5> Genres : 
+        <ul>
+         @{
+         foreach (var genre in Model.Genres)
+         {
+                <li>
+                    @genre.Name
+                </li>
+           }
+         }
+          
+        </ul>
+         
+    </h5>
     <h3>Auteur : @Model.Author</h3>
     <h3>Prix : @Model.Price EUR</h3>
     <p>

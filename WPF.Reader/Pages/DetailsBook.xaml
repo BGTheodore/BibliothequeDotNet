@@ -19,7 +19,7 @@
                         <TextBlock Foreground="Blue" Text="{Binding CurrentBook.Author}"></TextBlock>
                         <Label Content="Price" Foreground="MediumBlue" />
                         <TextBlock Foreground="Blue" Text="{Binding CurrentBook.Price}"></TextBlock>
-                        <Button Command="{Binding ReadCommand}" CommandParameter="{Binding CurrentBook}"  Content="Read Content"/>
+                        <Button Command="{Binding ReadCommand}" CommandParameter="{Binding CurrentBook.Id}"  Content="Read Content"/>
         </StackPanel>
             
         <!-- Mais pas le contenu ! -->
