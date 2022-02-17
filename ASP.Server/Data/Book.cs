@@ -23,8 +23,8 @@ namespace ASP.Server.Model
         public string Content { get; set; }
         [Required] 
         public double Price { get; set; }
-        
-       
+
+        [Required]
         public ICollection<Genre> Genres { get; set; }
         public DateTime Created { get; set; }
     }

@@ -19,27 +19,27 @@ label {
 </style>
 
 <form asp-controller="Book" asp-action="Update">
-    <input asp-for="Id" type="hidden" />
+    <input asp-for="Book.Id" type="hidden" value="@Model.Book.Id"  />
     <div class="input-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" required />
+        <label >Name</label>
+        <input asp-for="Book.Name" required value="@Model.Book.Name"  />
     </div>
     <div class="input-group">
-        <label asp-for="Author"></label>
-        <input asp-for="Author" required/>
+        <label >Author</label>
+        <input asp-for="Book.Author" required value="@Model.Book.Author"/>
     </div>
      <div class="input-group">
-        <label asp-for="Author"></label>
-        <textarea asp-for="Author" required></textarea>     
+        <label>Content</label>
+        <textarea asp-for="Book.Content" required >@Model.Book.Content</textarea>     
     </div>
     <div class="input-group">
-        <label asp-for="Price"></label>
-        <input asp-for="Price" required/>
+        <label >Price</label>
+        <input asp-for="Book.Price" required type="number" value="@Model.Book.Price"/>
     </div>
     <div class="input-group">
-        <label asp-for="Genres"></label>
+        <label>Genres</label>
         <!--Si la page rend une erreur a cette ligne, c'est que vous n'avez pas envoyé la liste des genres dans le Controller !!! ! -->
-        <select asp-for="Genres" asp-items="@(new SelectList(Model.AllGenres,"Id","Name"))">
+        <select asp-for="Genres" required asp-items="@(new SelectList(Model.AllGenres,"Id","Name"))">
         </select>
     </div>
    <!-- Code pour ajouter les genres -->
