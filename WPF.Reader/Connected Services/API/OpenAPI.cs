@@ -14,6 +14,7 @@
 
 namespace WPF.Reader.API
 {
+    using System.Threading.Tasks;
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.14.8.0 (NJsonSchema v10.5.2.0 (Newtonsoft.Json v13.0.1.0))")]
@@ -407,10 +408,6 @@ namespace WPF.Reader.API
         [Newtonsoft.Json.JsonProperty("genres", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Genre> Genres { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created { get; set; }
-    
     
     }
     
@@ -438,12 +435,11 @@ namespace WPF.Reader.API
         [Newtonsoft.Json.JsonProperty("genres", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Genre> Genres { get; set; } = new System.Collections.ObjectModel.Collection<Genre>();
-    
-        [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created { get; set; }
-    
-    
+
+        public static implicit operator Book(Task<Book> v)
+        {
+            throw new System.NotImplementedException();
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v13.0.1.0)")]

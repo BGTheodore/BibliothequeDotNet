@@ -9,17 +9,23 @@ namespace WPF.Reader.Service
 {
     public class LibraryService
     {
+        public LibraryService()
+        {
+            getBooks();
+        }
         String URL = "https://127.0.0.1:5001";
         // A remplacer avec vos propre données !!!!!!!!!!!!!!
         // Pensé qu'il ne faut mieux ne pas réaffecter la variable Books, mais juste lui ajouer et / ou enlever des éléments
         // Donc pas de LibraryService.Instance.Books = ...
         // mais plutot LibraryService.Instance.Books.Add(...)
         // ou LibraryService.Instance.Books.Clear()
+
         public ObservableCollection<BookLight> Books { get; set; } = new ObservableCollection<BookLight>() {
-            new BookLight(),
-            new BookLight(),
-            new BookLight()
+            //new BookLight(),
+            //new BookLight()
         };
+        public ObservableCollection<Genre> Genres { get; set; } = new ObservableCollection<Genre>() { };
+
 
         public async void getBooks()
         {
@@ -32,17 +38,29 @@ namespace WPF.Reader.Service
             }
         }
 
-        public ObservableCollection<Book> Book { get; set; } = new ObservableCollection<Book>() {
-            new Book(),
-            new Book(),
-            new Book()
-        };
-        public async void getBook(int id)
+        public async void getGenres()
         {
             var client = new API.Client(new System.Net.Http.HttpClient() { BaseAddress = new Uri(URL) });
-            var book = await client.ApiBookGetBookByIdAsync(id);
-            Book.Clear();
-            Book = Book;
+            var genres = await client.ApiBookGetGenresAsync();
+            Genres.Clear();
+            foreach (Genre genre in genres)
+            {
+                Genres.Add(genre);
+            }
+        }
+
+        /*        public ObservableCollection<Book> Book { get; set; } = new ObservableCollection<Book>() {
+                    new Book(),
+                    new Book(),
+                    new Book()
+
+                };
+        */
+        public  Book getBook(int id)
+        {
+            var client = new API.Client(new System.Net.Http.HttpClient() { BaseAddress = new Uri(URL) });
+            var book =  client.ApiBookGetBookByIdAsync(id);
+            return book.Result;
 
         }
 

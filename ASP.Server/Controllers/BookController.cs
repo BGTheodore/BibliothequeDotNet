@@ -105,7 +105,6 @@ namespace ASP.Server.Controllers
                     Author = book.Author, 
                     Content = book.Content,
                     Price = book.Price,
-                    Created = DateTime.Now,
                     Genres = genresOfTheBook
                 });
                 libraryDbContext.SaveChanges();

@@ -26,7 +26,6 @@ namespace ASP.Server.Model
 
         [Required]
         public ICollection<Genre> Genres { get; set; }
-        public DateTime Created { get; set; }
     }
 
     public class BookLight
@@ -39,6 +38,6 @@ namespace ASP.Server.Model
         public double Price { get { return Book.Price; } }
 
         public ICollection<Genre> Genres { get { return Book.Genres; } }
-        public DateTime Created { get { return Book.Created; } }
+     
     }
 }

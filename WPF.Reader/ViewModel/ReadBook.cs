@@ -2,8 +2,11 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
-using WPF.Reader.Model;
+//using WPF.Reader.Model;
+using Book = WPF.Reader.API.Book;
 using WPF.Reader.Service;
+using System;
+using BookLight = WPF.Reader.API.BookLight;
 
 namespace WPF.Reader.ViewModel
 {
@@ -20,6 +23,8 @@ namespace WPF.Reader.ViewModel
         {
             CurrentBook = book;
         }
+
+      
         // A vous de jouer maintenant
 
     }
