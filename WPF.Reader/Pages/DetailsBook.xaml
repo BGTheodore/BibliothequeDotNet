@@ -12,14 +12,15 @@
 
     <StackPanel>
         <!-- il faut afficher les information du livre: Nom, Auteur, Prix, Genres-->
+      
                     <StackPanel Orientation="Vertical">
-                        <Label Content="Name" Foreground="MediumBlue" />
-                        <TextBlock Foreground="Blue" Text="{Binding CurrentBook.Name}"></TextBlock>
-                        <Label Content="Author" Foreground="MediumBlue" />
-                        <TextBlock Foreground="Blue" Text="{Binding CurrentBook.Author}"></TextBlock>
-                        <Label Content="Price" Foreground="MediumBlue" />
-                        <TextBlock Foreground="Blue" Text="{Binding CurrentBook.Price}"></TextBlock>
-                        <Button Command="{Binding ReadCommand}" CommandParameter="{Binding CurrentBook.Id}"  Content="Read Content"/>
+                        <Label Content="TITLE : " Foreground="MediumBlue" />
+                        <TextBlock FontSize="30"  Text="{Binding CurrentBook.Name}"></TextBlock>
+                        <Label Content="AUTHOR" Foreground="MediumBlue" />
+                        <TextBlock FontSize="20"  Text="{Binding CurrentBook.Author}"></TextBlock>
+                        <Label Content="PRICE" Foreground="MediumBlue" />
+                        <TextBlock FontSize="20" Text="{Binding CurrentBook.Price}"></TextBlock>
+                        <Button Width="90" Command="{Binding ReadCommand}" CommandParameter="{Binding CurrentBook.Id}"  Content="Read Content"/>
         </StackPanel>
             
         <!-- Mais pas le contenu ! -->
