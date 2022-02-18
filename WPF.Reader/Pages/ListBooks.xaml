@@ -47,6 +47,37 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                
+            </StackPanel>
+
+            <StackPanel>
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Visibility" Value="Hidden" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=listbox, Path=SelectedIndex }" Value="1">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+                <Label Content="Genres" />
+
+                <ListView ItemsSource="{Binding Path= Genres}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5,3,15,3"
+                                    Text="{Binding Id, Mode=OneWay}" />
+                                <TextBlock Width="200"
+                                    Text="{Binding Name, Mode=TwoWay,
+                                    UpdateSourceTrigger=PropertyChanged, Delay=450}"/>
+                                
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
             </StackPanel>
         </StackPanel>
     </Grid>

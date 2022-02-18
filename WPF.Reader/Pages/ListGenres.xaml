@@ -10,52 +10,75 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListBooks">
-    
-        <!-- 
-            A vous de créer la liste avec le bon binding. Une <ListBox> fera l'affaire 
-            La propriété ItemsSource doit pointé vers la propiété Books de votre dataContext actuelle 
-            Utilisé ListBox.ItemTemplate pour définir comment sont affiché vos items
-            <ListBox.ItemTemplate>
-        
-            A vous de faire afficher les champs que vous voulez afficher pour savoir quel sont les livre disponible
-            <TextBlock Text="{Binding MyPropertyOnMyObjectBook}"/>
-            N'oublier pas non plus de rajouter un boutton quelque part pour allez voir les détails de votre livre
-            Les propriété Command et CommandParameter pourrons vous aider ! 
-            Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
-            CommandParameter="{Binding .}"
-        -->
-    
-    <StackPanel Orientation="Vertical" >
-        <ListBox Name="Title" ItemsSource="{Binding Genres}">
-            <ListBox.ItemTemplate >
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="12,12,12,12" Foreground="Blue" Text= "{Binding Name}"></TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </StackPanel>
-    <!--
-    <ListView Margin="10" Name="Title" ItemsSource="{Binding Path=Books}" ScrollViewer.VerticalScrollBarVisibility="Visible" >
 
-        <ListView.ItemTemplate >
+    <Grid>
+        <StackPanel Orientation = "Horizontal">
+            <ListBox Name = "listbox" Margin = "20,20,20,50" Width="100" Background="#FFA29E9E">
+                <ListBoxItem Content = "Books" />
+                <ListBoxItem Content = "Genres" />
+            </ListBox>
 
-            <DataTemplate>
-                <WrapPanel>
-                    <TextBlock Margin="10,5,10,5" Text="Title: " />
-                    <TextBlock Margin="0,5,10,5"  Text="{Binding Name}" FontWeight="Bold" />
-                    <TextBlock Margin="10,5,10,5" Text="Auteur: " />
-                    <TextBlock Margin="0,5,10,5" Text="{Binding Author}" FontWeight="Bold" />
-                    <TextBlock Margin="10,5,10,5" Text="Prix " />
-                    <TextBlock Margin="0,5,10,5" Text="{Binding Price}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
-                    <Button Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}" Width="100" Content="Details" Height="40"/>
-                </WrapPanel>
-            </DataTemplate>
+            <StackPanel>
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Visibility" Value="Hidden" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=listbox, Path=SelectedIndex }" Value="0">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+                <Label Content="Books" />
 
-        </ListView.ItemTemplate>
+                <ListView ItemsSource="{Binding Path= Books}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5,3,15,3"
+                                    Text="{Binding Id, Mode=OneWay}" />
+                                <TextBlock Width="200"
+                                    Text="{Binding Name, Mode=TwoWay,
+                                    UpdateSourceTrigger=PropertyChanged, Delay=450}"/>
+                                <Button Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}"  Content="See Book" Foreground="#FF39B50E"/>
 
-    </ListView>
-    -->
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackPanel>
+
+            <StackPanel>
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Visibility" Value="Hidden" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=listbox, Path=SelectedIndex }" Value="1">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+                <Label Content="Genres" />
+
+                <ListView ItemsSource="{Binding Path= Genres}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5,3,15,3"
+                                    Text="{Binding Id, Mode=OneWay}" />
+                                <TextBlock Width="200"
+                                    Text="{Binding Name, Mode=TwoWay,
+                                    UpdateSourceTrigger=PropertyChanged, Delay=450}"/>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
 </Page>
 
