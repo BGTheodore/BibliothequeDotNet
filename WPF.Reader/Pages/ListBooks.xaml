@@ -10,7 +10,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListBooks">
-    <StackPanel Orientation="Vertical" >
+    
         <!-- 
             A vous de créer la liste avec le bon binding. Une <ListBox> fera l'affaire 
             La propriété ItemsSource doit pointé vers la propiété Books de votre dataContext actuelle 
@@ -24,23 +24,44 @@
             Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
             CommandParameter="{Binding .}"
         -->
-
-
+    
+    <StackPanel Orientation="Vertical" >
         <ListBox Name="Title" ItemsSource="{Binding Path=Books}">
-            <ListBox.ItemTemplate>
+            <ListBox.ItemTemplate >
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="Blue" Text= "{Binding Name}"></TextBlock>
-                        <TextBlock> Ecrit  par </TextBlock>
-                        <TextBlock Foreground="Blue" Text="{Binding Author}"></TextBlock>
-
-                        <Button Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}"  Content="See Book"/>
+                        <TextBlock Margin="12,12,12,12" Text="TITLE : " />
+                        <TextBlock Margin="12,12,12,12" Foreground="Blue" Text= "{Binding Name}"></TextBlock>
+                        <TextBlock Margin="12,12,12,12" Text="AUTHOR : " />
+                        <TextBlock Margin="12,12,12,12" Foreground="Blue" Text="{Binding Author}"></TextBlock>
+                        <TextBlock Margin="12,12,12,12" Text="PRICE : " />
+                        <TextBlock Margin="12,12,12,12" Foreground="Blue" Text="{Binding Price}"></TextBlock>
+                        <Button Margin="12,12,12,12" Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}"  Content="Details"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-
         </ListBox>
-
     </StackPanel>
+    <!--
+    <ListView Margin="10" Name="Title" ItemsSource="{Binding Path=Books}" ScrollViewer.VerticalScrollBarVisibility="Visible" >
+
+        <ListView.ItemTemplate >
+
+            <DataTemplate>
+                <WrapPanel>
+                    <TextBlock Margin="10,5,10,5" Text="Title: " />
+                    <TextBlock Margin="0,5,10,5"  Text="{Binding Name}" FontWeight="Bold" />
+                    <TextBlock Margin="10,5,10,5" Text="Auteur: " />
+                    <TextBlock Margin="0,5,10,5" Text="{Binding Author}" FontWeight="Bold" />
+                    <TextBlock Margin="10,5,10,5" Text="Prix " />
+                    <TextBlock Margin="0,5,10,5" Text="{Binding Price}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                    <Button Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}" Width="100" Content="Details" Height="40"/>
+                </WrapPanel>
+            </DataTemplate>
+
+        </ListView.ItemTemplate>
+
+    </ListView>
+    -->
 </Page>
 
