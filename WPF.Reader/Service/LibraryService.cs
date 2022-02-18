@@ -12,6 +12,7 @@ namespace WPF.Reader.Service
         public LibraryService()
         {
             getBooks();
+            getGenres();
         }
         String URL = "https://127.0.0.1:5001";
         // A remplacer avec vos propre données !!!!!!!!!!!!!!
