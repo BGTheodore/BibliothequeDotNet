@@ -4,6 +4,7 @@ using WPF.Reader.API;
 using WPF.Reader.Model;
 using Book = WPF.Reader.API.Book;
 using BookLight = WPF.Reader.API.BookLight;
+using System.Collections.Generic;
 
 namespace WPF.Reader.Service
 {
@@ -39,6 +40,17 @@ namespace WPF.Reader.Service
             }
         }
 
+        public async void getBooksOfGenre(int? id)
+        {
+            var client = new API.Client(new System.Net.Http.HttpClient() { BaseAddress = new Uri(URL) });
+            var books = await client.ApiBookGetBooksAsync(id, null, null);
+            Books.Clear();
+            foreach (BookLight book in books)
+            {
+                Books.Add(book);
+            }
+        }
+
         public async void getGenres()
         {
             var client = new API.Client(new System.Net.Http.HttpClient() { BaseAddress = new Uri(URL) });
@@ -64,6 +76,8 @@ namespace WPF.Reader.Service
             return book.Result;
 
         }
+
+      
 
         // C'est aussi ici que vous ajouterez les requète réseau pour récupérer les livres depuis le web service que vous avez fait
         // Vous pourrez alors ajouter les livres obtenu a la variable Books !

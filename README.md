@@ -1,17 +1,17 @@
 # TP .NET
 
 # But
-Construire un web service avec son client Windows pour gerer et consulter une bibliothèque de livres
+- [x] Construire un web service avec son client Windows pour gerer et consulter une bibliothèque de livres
 # A rendre
-Un web service de stockage et de gestion de livres en ligne
+- [x] Un web service de stockage et de gestion de livres en ligne
 
-Un logiciel sous Windows pour consulter et lire les livres
+- [x] Un logiciel sous Windows pour consulter et lire les livres
 # Contrainte
 Langages autorisés : C#, HTML, Javascript
 
-Serveur web : ASP.Net Core
+- [x] Serveur web : ASP.Net Core
 
-Logiciel Windows : WPF
+- [x] Logiciel Windows : WPF
 # Projet de départ
 Votre solution devra être basé sur le projet Library.sln
 
@@ -29,46 +29,46 @@ Pour que Entity Framework retourne les genres avec les livres :
 
 # Fonctionnalité attendue
 ## Livrable
-- [Une interface d'administration](#Administration)
-- [Une API REST](#Api)
-- [un Client lourd de lecture](#Application-Windows)
+- [x] - [Une interface d'administration](#Administration)
+- [x] - [Une API REST](#Api)
+- [x] - [un Client lourd de lecture](#Application-Windows)
 
 ## Librairie
 Stocker une bibliothèque de livres consistant en :
 
-- Une liste de livres accessibles à la lecture
-- Une liste de genres permettant de caractériser les livres
+- [x] - Une liste de livres accessibles à la lecture
+- [x] - Une liste de genres permettant de caractériser les livres
 
 Sachant que :
 
-- Un livre contient au minimum :
+- [x] - Un livre contient au minimum :
   - Un Id
   - Un titre
   - Un contenu
   - Un prix
   - Des genres
-- Un livre peut avoir plusieurs genres
+- [x] - Un livre peut avoir plusieurs genres
 
 # Administration
 Il est nécessaire pour ces fonctionnalités de mettre à disposition de l’utilisateur une interface web
 
 Un utilisateur doit pouvoir :
 
-- ajouter des livres dans la bibliothèque
-- supprimer des livres de la bibliothèque
-- Consulter la liste de tous les livres
-- Consulter la liste de tous les genres
+- [x] - ajouter des livres dans la bibliothèque
+- [x] - supprimer des livres de la bibliothèque
+- [x] - Consulter la liste de tous les livres
+- [x] - Consulter la liste de tous les genres
 
 Option : 
 
-- Faire une interface pour ajouter de nouveaux genres 
-- Modifier un livre existant
+- [x] - Faire une interface pour ajouter de nouveaux genres 
+- [x] - Modifier un livre existant
 
 Une ébauche de ce qui est attendu ce trouve dans ASP.Server/Controllers/BookController.cs et GenreController.cs
 
 
 # Api
-Une api REST doit être mis à disposition pour permettre à des clients externes de consulter la librairie
+- [x] Une api REST doit être mis à disposition pour permettre à des clients externes de consulter la librairie
 
 Une ébauche de ce qui est attendu ce trouve dans le fichier ASP.Server/Api/BookController.cs
 
@@ -95,8 +95,8 @@ Exemple:
 ```
 
 ## Lister les livres (sans le contenu) : 
-- Le résultat doit être paginé
-- La recherche doit aussi pouvoir être faite en spécifiant un genre
+- [x] - Le résultat doit être paginé
+- [x] - La recherche doit aussi pouvoir être faite en spécifiant un genre
 
 Exemple :
 - /book
@@ -167,16 +167,16 @@ La solution fournie intègre NSwag par défaut
 ## Affichage
 L’application doit pouvoir permettre de :
 
-- Lister les *N* premiers livres (vous pouvez définir la limite comme bon vous semble)
-- Afficher les détails d’un livre
-- Lire un livre
+- [x] - Lister les *N* premiers livres (vous pouvez définir la limite comme bon vous semble)
+- [x] - Afficher les détails d’un livre
+- [x] - Lire un livre
 
 Options :
 
-- Lister tous les genres
-- Afficher les *N* premiers livres d’un genre (vous pouvez définir la limite comme bon vous semble)
+- [x] - Lister tous les genres
+- [x] - Afficher les *N* premiers livres d’un genre (vous pouvez définir la limite comme bon vous semble)
 
-À tout moment l’utilisateur doit pouvoir revenir à l’accueil, il n’est pas nécessaire de faire un bouton pour revenir à la page précédente
+- [x] À tout moment l’utilisateur doit pouvoir revenir à l’accueil, il n’est pas nécessaire de faire un bouton pour revenir à la page précédente
 
 Les écrans doivent s’articuler de la façon suivante :
 
@@ -187,7 +187,7 @@ Les carrés blancs représentent une fonctionnalité disponible sur l’écran
 Les carrés verts sont optionnels
 
 ## Api
-L’application doit pouvoir recevoir les livres depuis le serveur développé dans la partie précédente
+- [x] L’application doit pouvoir recevoir les livres depuis le serveur développé dans la partie précédente
 
 Pour générer le code client vous pouvez utiliser :
 

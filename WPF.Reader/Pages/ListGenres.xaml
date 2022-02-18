@@ -71,7 +71,6 @@
                                 <TextBlock Width="200"
                                     Text="{Binding Name, Mode=TwoWay,
                                     UpdateSourceTrigger=PropertyChanged, Delay=450}"/>
-
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
