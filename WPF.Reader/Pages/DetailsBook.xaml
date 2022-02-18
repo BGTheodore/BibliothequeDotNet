@@ -10,6 +10,12 @@
       d:DataContext="{d:DesignInstance Type=vm:InDesignDetailsBook, d:IsDesignTimeCreatable=True}"
       Title="DetailsBook">
 
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
     <StackPanel>
         <!-- il faut afficher les information du livre: Nom, Auteur, Prix, Genres-->
                     <StackPanel Orientation="Vertical">

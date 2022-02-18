@@ -8,8 +8,58 @@
       xmlns:model="clr-namespace:WPF.Reader.Model"
       d:DataContext="{d:DesignInstance Type=vm:ListBook, d:IsDesignTimeCreatable=True}"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="200" d:DesignWidth="200"
       Title="ListBooks">
+
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation = "Horizontal" Margin="0,-53,3,53">
+
+
+            <ListBox x:Name = "listbox" Width="209" Background="#FFDAD7D7" FontFamily="Arial Narrow" Height="92">
+                <ListBoxItem Content = "Home" />
+                <ListBoxItem Content = "Books" />
+                <ListBoxItem Content = "Genre" />
+            </ListBox>
+
+
+            <StackPanel>
+                <StackPanel.Style>
+                    <Style TargetType="{x:Type StackPanel}">
+                        <Setter Property="Visibility" Value="Hidden" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedIndex, ElementName=listbox}" Value="1">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+                <Label Content="Book" />
+
+                <ListView ItemsSource="{Binding Books}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate DataType="{x:Type model:Book}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5,3,15,3"
+                                    Text="{Binding Id, Mode=OneWay}" />
+                                <TextBox Width="200"
+                                    Text="{Binding Name, Delay=450, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+
+
+
+    <!-- 
     <StackPanel Orientation="Vertical" >
         <!-- 
             A vous de créer la liste avec le bon binding. Une <ListBox> fera l'affaire 
@@ -26,21 +76,5 @@
         -->
 
 
-        <ListBox Name="Title" ItemsSource="{Binding Path=Books}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="Blue" Text= "{Binding Name}"></TextBlock>
-                        <TextBlock> Ecrit  par </TextBlock>
-                        <TextBlock Foreground="Blue" Text="{Binding Author}"></TextBlock>
-
-                        <Button Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" CommandParameter="{Binding .}"  Content="See Book"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-
-        </ListBox>
-
-    </StackPanel>
 </Page>
 

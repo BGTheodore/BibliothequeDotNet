@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace WPF.Reader.Pages
 {
     /// <summary>
-    /// Interaction logic for ListBooks.xaml
+    /// Logique d'interaction pour Accueil.xaml
     /// </summary>
-    public partial class ListBooks : Page
+    public partial class Accueil : Page
     {
-        public ListBooks()
+        public Accueil()
         {
             InitializeComponent();
         }
-
-
     }
 }
