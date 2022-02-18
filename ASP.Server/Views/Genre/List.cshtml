@@ -7,15 +7,17 @@
 
 <div class="listeGenres">
     <h1>Liste des Genres:</h1>
-    <a  asp-controller="Genre" asp-action="Create">Add new genre</a>
     <!-- la liste des genres est dans la variable Model qui est typé en ligne 3, elle correspond à la variable xxx dans View(xxx) du controller -->
-      <table>
-          <tr>
+      <table id="myTable" class=" table table-bordered table-striped table-condensed">
+          <thead>
+            <tr>
             <th>Id</th>
             <th>Name</th>
             <th></th>
             <th></th>
-          </tr>
+            </tr>
+          </thead>
+          
              @foreach (var genre in Model)
                 {
                      <tr>

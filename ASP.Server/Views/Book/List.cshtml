@@ -5,29 +5,34 @@
 }
 
 <div class="listeBooks">
-    <h1>Liste des livres:</h1>
+    <h1>List of books:</h1>
     <!-- la liste des genres est dans la variable Model qui est typé en ligne 3, elle correspond à la variable xxx dans View(xxx) du controller -->
-        <table>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Author</th>
-            <th>Content</th>
-            <th>Price</th>
-          </tr>
+        <table id="myTable" class=" table table-bordered table-striped table-condensed">
+            <thead>
+             <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+                 <th></th>
+                <th></th>
+                <th></th>
+                </tr>
+            </thead>
+         
              @foreach (var book in Model)
                 {
                      <tr>
                         <td>@book.Id</td>
                         <td>@book.Name</td>
                         <td>@book.Author</td>
-                        <td>@book.Content</td>
                         <td>@book.Price</td>
+                        <td> @Html.ActionLink("Details", "Details", new { controller = "Book",  id = book.Id }) </td>
                         <td> @Html.ActionLink("Edit", "Edit", new { controller = "Book",  id = book.Id }) </td>
-                        <td> @Html.ActionLink("Delete", "Delete", new { controller = "Book",  id = book.Id }) </td>
+                        <td> @Html.ActionLink("Delete", "Delete", new { controller = "Book",  id = book.Id })</td>
                      </tr>   
                 }
         </table>
-    
+ 
 </div>
 

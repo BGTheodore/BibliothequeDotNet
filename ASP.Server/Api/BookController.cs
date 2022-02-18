@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASP.Server.Database;
+using PagedList;
 
 namespace ASP.Server.Api
 {
@@ -56,14 +57,38 @@ namespace ASP.Server.Api
 
 
         // Vous vous montre comment faire la 1er, a vous de la compléter et de faire les autres !
-        public ActionResult<List<Book>> GetBooks()
+        public ActionResult<List<BookLight>> GetBooks(int? genre, int offset = 0, int limit = 10)
         {
+            // TODO : VALIDATION OF PARAM
+
+
             //throw new NotImplementedException("You have to do it youtself");
-            return libraryDbContext.Books.ToList();
+         
+            IEnumerable<BookLight> books = libraryDbContext.Books.Include(book => book.Genres).Select(x => new BookLight() { Book = x});
+            if (genre != null)
+            {
+                books = books.Where(book => book.Genres.Any(k => k.Id == genre.Value));
+            }
+            books = books.OrderBy(q => q.Id)
+                .Skip((offset - 1) * limit).Take(limit);
+
+            return books.ToList();
         }
         public ActionResult<List<Genre>> GetGenres()
         {
             return libraryDbContext.Genre.ToList();
+        }
+
+        //get Book by Id 
+        [HttpGet("{id}")]
+        public ActionResult<Book> GetBookById(int id)
+        {
+            var book = libraryDbContext.Books.Include(book => book.Genres).Where(book => book.Id == id).FirstOrDefault();
+            if(book != null)
+            {
+                return book;
+            }
+            return NotFound();
         }
 
     }
