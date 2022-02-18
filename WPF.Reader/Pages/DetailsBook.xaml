@@ -20,7 +20,21 @@
                         <TextBlock FontSize="20"  Text="{Binding CurrentBook.Author}"></TextBlock>
                         <Label Content="PRICE" Foreground="MediumBlue" />
                         <TextBlock FontSize="20" Text="{Binding CurrentBook.Price}"></TextBlock>
+
+
+                    <TextBlock Margin="12,12,12,12" FontSize="20" Text="GENRES : "></TextBlock>
+                    <ListBox Name="Title" ItemsSource="{Binding CurrentBook.Genres}">
+                     <ListBox.ItemTemplate >
+                            <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="12,12,12,12" Foreground="Blue" Text= "{Binding Name}"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
             <Button Width="90" Command="{Binding ReadCommand}" CommandParameter="{Binding CurrentBook.Id}"  Content="Read Content" FontWeight="Bold"  Foreground="#FF0EA01E"/>
+
         </StackPanel>
             
         <!-- Mais pas le contenu ! -->
